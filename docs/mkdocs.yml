@@ -1,0 +1,56 @@
+site_name: Primeight
+site_description: primeight Python package
+site_url: https://pri.meight.com/
+theme:
+  name: material
+  palette:
+    primary: indigo
+    accent: cyan
+  icon:
+    repo: fontawesome/brands/github-alt
+  logo: images/logo.svg
+  favicon: images/favicon.png
+  language: en
+plugins:
+  - search
+  - awesome-pages
+markdown_extensions:
+  - admonition
+  - codehilite
+  - pymdownx.inlinehilite
+  - pymdownx.smartsymbols
+  - pymdownx.mark
+  - toc:
+      permalink: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.tasklist:
+      custom_checkbox: true
+      clickable_checkbox: false
+repo_name: wearemeight/primeight
+repo_url: https://github.com/wearemeight/primeight
+edit_uri: ''
+nav:
+  - package-name: index.md
+  - Fundamentals: fundamentals.md
+  - User Guide:
+    - First Steps: user-guide/first-steps.md
+    - Query Cassandra: user-guide/query-cassandra.md
+    - Insert Data: user-guide/insert-data.md
+    - Indexing Geo-spacial Data: user-guide/indexing-geospacial-data.md
+    - Managing Keyspaces: user-guide/manage-keyspaces.md
+    - Managing Tables: user-guide/manage-tables.md
+    - Managing Materialized Views: user-guide/manage-materialized-views.md
+    - Python Typing: user-guide/python-typing.md
+  - Reference:
+    - parser:
+      - YamlParser: reference/parser/yaml-parser.md
+    - CassandraBase: reference/cassandra-base.md
+    - CassandraManager: reference/cassandra-manager.md
+    - CassandraKeyspace: reference/cassandra-keyspace.md
+    - CassandraTable: reference/cassandra-table.md
+    - CassandraMaterializedView: reference/cassandra-materialized-view.md
+    - CassandraColumn: reference/cassandra-column.md

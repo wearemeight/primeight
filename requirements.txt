@@ -1,0 +1,11 @@
+boto3==1.12.44
+cassandra-driver==3.23.0
+geojson==2.5.0
+h3==3.4.3
+PyYAML==5.3.1
+pytz==2019.3
+numpy==1.18.3
+pandas==1.0.3
+pydantic==1.5.1
+requests==2.23.0
+paramiko==2.7.1
