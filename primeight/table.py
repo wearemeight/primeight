@@ -6,7 +6,7 @@ from typing import Any, List, Dict, Optional
 import pytz
 from cassandra.encoder import cql_quote
 from pydantic import create_model
-from h3.h3 import h3_is_valid, h3_to_geo_boundary
+import h3.api.basic_str as h3
 from geojson import Polygon
 
 from primeight.base import CassandraBase
@@ -673,7 +673,7 @@ class CassandraTable(CassandraBase):
                 hex_json = {
                     'type': 'Feature',
                     'geometry':
-                        Polygon([h3_to_geo_boundary(_tmp, geo_json=True)]),
+                        Polygon([h3.h3_to_geo_boundary(_tmp, geo_json=True)]),
                     'properties': {}
                 }
                 features.append(hex_json)
@@ -703,7 +703,7 @@ class CassandraTable(CassandraBase):
         if logger.level == logging.DEBUG:
             # Since creating a geojson takes a lot of time,
             # we only log the geojson when in logging level DEBUG.
-            _log_geojson([_h3 for _h3 in identifier if h3_is_valid(_h3)])
+            _log_geojson([_h3 for _h3 in identifier if h3.h3_is_valid(_h3)])
 
         return self
 

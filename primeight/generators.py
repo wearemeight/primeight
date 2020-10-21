@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 
 import pytz
-from h3.h3 import geo_to_h3
+import h3.api.basic_str as h3
 
 
 class Generators:
@@ -113,7 +113,7 @@ class Generators:
         :type lon: float
         :return: datetime object for that year on the first day at midnight
         """
-        return geo_to_h3(lat, lon, 3)
+        return h3.geo_to_h3(lat, lon, 3)
 
     @staticmethod
     def h3_begin(lat, lon):
@@ -137,7 +137,7 @@ class Generators:
         :type lon: float
         :return: datetime object for that year on the first day at midnight
         """
-        return geo_to_h3(lat, lon, 4)
+        return h3.geo_to_h3(lat, lon, 4)
 
     @staticmethod
     def h4_begin(lat, lon):
@@ -161,7 +161,7 @@ class Generators:
         :type lon: float
         :return: datetime object for that year on the first day at midnight
         """
-        return geo_to_h3(lat, lon, 5)
+        return h3.geo_to_h3(lat, lon, 5)
 
     @staticmethod
     def h5_begin(lat, lon):
@@ -185,7 +185,7 @@ class Generators:
         :type lon: float
         :return: datetime object for that year on the first day at midnight
         """
-        return geo_to_h3(lat, lon, 6)
+        return h3.geo_to_h3(lat, lon, 6)
 
     @staticmethod
     def h6_begin(lat, lon):
@@ -209,7 +209,7 @@ class Generators:
         :type lon: float
         :return: datetime object for that year on the first day at midnight
         """
-        return geo_to_h3(lat, lon, 7)
+        return h3.geo_to_h3(lat, lon, 7)
 
     @staticmethod
     def h7_begin(lat, lon):
@@ -233,7 +233,7 @@ class Generators:
         :type lon: float
         :return: datetime object for that year on the first day at midnight
         """
-        return geo_to_h3(lat, lon, 8)
+        return h3.geo_to_h3(lat, lon, 8)
 
     @staticmethod
     def h8_begin(lat, lon):
@@ -257,7 +257,7 @@ class Generators:
         :type lon: float
         :return: datetime object for that year on the first day at midnight
         """
-        return geo_to_h3(lat, lon, 9)
+        return h3.geo_to_h3(lat, lon, 9)
 
     @staticmethod
     def h9_begin(lat, lon):
@@ -281,7 +281,7 @@ class Generators:
         :type lon: float
         :return: datetime object for that year on the first day at midnight
         """
-        return geo_to_h3(lat, lon, 10)
+        return h3.geo_to_h3(lat, lon, 10)
 
     @staticmethod
     def h10_begin(lat, lon):
@@ -305,7 +305,7 @@ class Generators:
         :type lon: float
         :return: datetime object for that year on the first day at midnight
         """
-        return geo_to_h3(lat, lon, 11)
+        return h3.geo_to_h3(lat, lon, 11)
 
     @staticmethod
     def h11_begin(lat, lon):
@@ -329,7 +329,7 @@ class Generators:
         :type lon: float
         :return: datetime object for that year on the first day at midnight
         """
-        return geo_to_h3(lat, lon, 12)
+        return h3.geo_to_h3(lat, lon, 12)
 
     @staticmethod
     def h12_begin(lat, lon):
