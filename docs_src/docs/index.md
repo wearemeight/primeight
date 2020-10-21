@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://pri.meight.com"><img width=256 height=256 src="https://raw.githubusercontent.com/wearemeight/primeight/initial-version/docs_src/docs/images/logo.svg" alt="Primeight"></a>
+    <a href="https://pri.meight.com"><img width=256 height=256 src="https://raw.githubusercontent.com/wearemeight/primeight/initial-version/docs_src/docs/images/logo-with-name.svg" alt="Primeight"></a>
 </p>
 ***
 
