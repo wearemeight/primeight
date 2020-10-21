@@ -1,15 +1,18 @@
 <p align="center">
-    <a href="https://pri.meight.com"><img src="/images/logo.svg" alt="Primeight"></a>
+    <a href="https://pri.meight.com"><img width=256 height=256 src="/images/logo-with-name.svg" alt="Primeight"></a>
 </p>
-
 ***
 
-**primeight** is a Python package designed to make the powerful NoSQL [Cassandra](https://cassandra.apache.org/) database system easily available to everyone. We had two major objectives in mind: 1) encapsulate its partition system with a very easy interface and 2) enforce C* best practices by defining queries for tables. Additionally we added other proxies to convenient operations such as creation, management, and drop of keyspaces, tables and/or materialized views.
+**primeight** is a Python package designed to make the powerful NoSQL [Cassandra](https://cassandra.apache.org/) database system easily available to everyone. 
+We had two major objectives in mind: encapsulate its partition system with a very easy interface, and enforce Cassandra best practices by defining queries for tables
 
-**primeight** came to life from the necessity to create a standard
-in Meight Engineering when interacting with Cassandra. We recognised that when dealing with IOT Time Series data there are typically 3 dimensions to partition it: by __time__, __space__, and/or __identifier__. 
+Additionally we added other proxies to convenient operations such as creation, management, and drop of keyspaces, tables and/or materialized views.
 
-**primeight** tries to make the most of Cassandra core ideas, like Query-driven modelling and partitions to optimise for speed, while making available one of the most powerful database technologies to the Python community!
+**primeight** came to life from the necessity to create a standard at Meight Engineering when interacting with Cassandra. 
+We recognised that when dealing with IOT Time Series data there are typically 3 dimensions to partition it: by __time__, __space__, and/or __identifier__. 
+
+**primeight** tries to make the most of Cassandra core ideas, like Query-driven modelling and partitions to optimise for speed, 
+while making available one of the most powerful database technologies to the Python community!
 
 !!! info
     **primeight** is still in beta, as well as this documentation.
@@ -18,7 +21,7 @@ in Meight Engineering when interacting with Cassandra. We recognised that when d
 ## Installation
 
 ```
-pip install **primeight**
+pip install primeight
 ```
 
 ## Example
@@ -133,15 +136,6 @@ rows = \
 n_rows = len(rows)
 print(f"Queried {len(rows)} rows")
 ```
-
-## TODO
-
-* [ ] improve support for creation of tables
-* [ ] improve docstring documentation
-* [ ] implement table alter
-* [ ] implement table index
-* [ ] implement batch insert
-* [ ] implement row delete
 
 ## License
 

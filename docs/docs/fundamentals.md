@@ -11,7 +11,7 @@ and provide an explanation why.
 ### Yaml structure
 
 #### Required Fields
-The yaml has 4 required fields: `version`, `keyspace`, `name`, `columns`, and `query`.
+The yaml has 5 required fields: `version`, `keyspace`, `name`, `columns`, and `query`.
 
 ##### Version
 The `version` field represents the version of the template.
