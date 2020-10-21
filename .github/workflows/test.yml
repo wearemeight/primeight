@@ -6,7 +6,7 @@ name: Test
 on:
   push:
   pull_request:
-    branches: [ initial-version ]
+    types: [opened, synchronize]
 
 jobs:
   build:
