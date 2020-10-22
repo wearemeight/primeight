@@ -17,8 +17,8 @@ setup(
     version='0.1.0',
     url='https://pri.meight.com',
     license='Apache License 2.0',
-    author='António Reis; Bernardo Casaleiro',
-    author_email='areis@meight.com; bcasaleiro@meight.com',
+    author='Meight team',
+    author_email='engineering@meight.com',
     packages=['primeight', 'primeight.parser'],
     install_requires=requires
 )
