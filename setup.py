@@ -14,7 +14,7 @@ setup(
     name='primeight',
     description="Primeight is packaged with all you need to create tables, "
                 "query them, and insert data into your Cassandra database",
-    version='0.1.0',
+    version='0.1.1',
     url='https://pri.meight.com',
     license='Apache License 2.0',
     author='Meight team',
