@@ -5,7 +5,7 @@ with Path('README.md').open('r') as f:
     long_description = f.read()
 
 with Path('requirements.txt').open('r') as f:
-    requires = f.read().splitlines
+    requires = f.read().splitlines()
 
 setup(
     name='primeight',
