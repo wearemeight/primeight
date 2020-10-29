@@ -13,8 +13,7 @@ setup(
     url='https://pri.meight.com',
     author='Meight',
     author_email='engineering@meight.com',
-    description="All you need to create tables, query them, "
-                "and insert data into your Cassandra database",
+    description="An Open Source Python package to manage and interact with Cassandra",
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=['primeight', 'primeight.parser'],
