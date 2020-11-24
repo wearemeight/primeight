@@ -223,12 +223,13 @@ class Parser:
             if all_columns.count(column) > 1:
                 raise SyntaxError(f"Query column {column} is duplicated")
 
-        # Validate that backup is not empty.
-        if content['backup'] is None:
-            raise SyntaxError("Backup not defined.")
-        # Validate that backup is recognized.
-        if content['backup'] not in Parser._recognized_splits:
-            raise SyntaxError(f"Unrecognized backup '{content['backup']}'")
+        if 'backup' in content:
+            # Validate that backup is not empty.
+            if content['backup'] is None:
+                raise SyntaxError("Backup not defined.")
+            # Validate that backup is recognized.
+            if content['backup'] not in Parser._recognized_splits:
+                raise SyntaxError(f"Unrecognized backup '{content['backup']}'")
 
         if 'split' in content:
             # Validate that split is not empty.
