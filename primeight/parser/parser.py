@@ -161,6 +161,7 @@ class Parser:
                 .replace('list<', '') \
                 .replace('tuple<', '') \
                 .replace('set<', '') \
+                .replace('map<', '') \
                 .strip('>')
             # Validate that the column type is recognized.
             if ',' in t:
