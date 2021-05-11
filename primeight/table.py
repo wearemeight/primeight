@@ -329,7 +329,7 @@ class CassandraTable(CassandraBase):
                         keyspace=keyspace,
                         gc_grace_seconds=gc_grace_seconds,
                         if_not_exists=if_not_exists
-                    ).statements
+                    )._current_statements
 
         return self
 
@@ -367,7 +367,7 @@ class CassandraTable(CassandraBase):
                 self._current_statements += \
                     CassandraMaterializedView(self.config, name, self.keyspace) \
                     .drop(keyspace=keyspace, if_exists=if_exists) \
-                    .statements
+                    ._current_statements
 
         for keyspace_name in keyspaces:
             statement = f"DROP TABLE "
@@ -500,7 +500,7 @@ class CassandraTable(CassandraBase):
                 self._current_statements += \
                     CassandraMaterializedView(self.config, name, self._keyspace) \
                     .query(keyspace=keyspace) \
-                    .statements
+                    ._current_statements
 
         return self
 
