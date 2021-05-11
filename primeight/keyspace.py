@@ -1,3 +1,11 @@
+"""
+Primeight module to manage everything related to Cassandra keyspaces.
+
+    Classes:
+        - CassandraKeyspace
+
+"""
+
 from typing import List, Dict
 
 from cassandra.query import Statement, SimpleStatement
@@ -7,11 +15,7 @@ from primeight.manager import CassandraManager
 
 
 class CassandraKeyspace(CassandraBase):
-    """Cassandra keyspace class.
-    This class incorporates all the information and operations
-    allowed over keyspaces.
-
-    """
+    """This class incorporates all the information and operations allowed over keyspaces."""
 
     @property
     def config(self) -> dict:
@@ -45,11 +49,11 @@ class CassandraKeyspace(CassandraBase):
         self._current_statements = []
 
     def create(
-        self,
-        name: str or List[str] = None,
-        replication_strategy='SimpleStrategy',
-        replication_factor: int or Dict[str, int] = 3,
-        if_not_exists=False
+            self,
+            name: str or List[str] = None,
+            replication_strategy='SimpleStrategy',
+            replication_factor: int or Dict[str, int] = 3,
+            if_not_exists=False
     ):
         """Create new keyspace statement.
 
@@ -120,7 +124,7 @@ class CassandraKeyspace(CassandraBase):
 
         self._current_statements = []
         for keyspace_name in keyspaces:
-            statement = f"DROP KEYSPACE "
+            statement = "DROP KEYSPACE "
             if if_exists:
                 statement += "IF EXISTS "
             statement += f"{keyspace_name} ;"
@@ -130,10 +134,10 @@ class CassandraKeyspace(CassandraBase):
         return self
 
     def alter(
-        self,
-        name: str or List[str] = None,
-        replication_strategy='SimpleStrategy',
-        replication_factor: int or Dict[str, int] = 3
+            self,
+            name: str or List[str] = None,
+            replication_strategy='SimpleStrategy',
+            replication_factor: int or Dict[str, int] = 3
     ):
         """Alter keyspace statement.
 
