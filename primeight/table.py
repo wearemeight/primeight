@@ -498,7 +498,7 @@ class CassandraTable(CassandraBase):
                 self._current_statements.append(statement)
             else:
                 self._current_statements += \
-                    CassandraMaterializedView(self.config, name, self.keyspace) \
+                    CassandraMaterializedView(self.config, name, self._keyspace) \
                     .query(keyspace=keyspace) \
                     .statements
 
