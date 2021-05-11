@@ -2,7 +2,7 @@
 Primeight module to manage everything related to Cassandra keyspaces.
 
     Classes:
-        - CassandraKeyspace
+        CassandraKeyspace: class to manage everything related to a Cassandra keyspace
 
 """
 
@@ -15,7 +15,7 @@ from primeight.manager import CassandraManager
 
 
 class CassandraKeyspace(CassandraBase):
-    """This class incorporates all the information and operations allowed over keyspaces."""
+    """This class provides all the information and operations allowed over a Cassandra keyspace."""
 
     @property
     def config(self) -> dict:
