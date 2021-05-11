@@ -166,10 +166,7 @@ class CassandraTable(CassandraBase):
 
         for statement in self._current_statements:
             if '{date}' in statement:
-                raise DateNotDefinedError(
-                    "When splitting table by date, "
-                    "you are required to specify a time frame."
-                )
+                raise DateNotDefinedError()
 
         return True
 
@@ -514,7 +511,7 @@ class CassandraTable(CassandraBase):
         column_names = [a.name for a in self.columns]
         for column in columns:
             if column not in column_names:
-                raise MissingColumnError(f"{column} not in table columns")
+                raise MissingColumnError(column)
 
         cols_str = ", ".join(columns)
         self._current_statements = [self._replace(s, 'columns', cols_str)
