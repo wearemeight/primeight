@@ -2,6 +2,7 @@ import json
 import logging
 from datetime import datetime, timedelta
 from typing import Any, List, Dict, Optional
+from uuid import UUID
 
 import pytz
 from cassandra.encoder import cql_quote
@@ -435,8 +436,14 @@ class CassandraTable(CassandraBase):
                 split = self.config['split']
                 split_col = self.config['generated_columns'][split]
 
-                date = \
-                    datetime.fromtimestamp(row[split_col] / 1000, tz=pytz.UTC)
+                if type(row[split_col]) is UUID:
+                    timestamp = Generators.convert_uuid_to_timestamp(row[split_col])
+                elif type(row[split_col]) is int:
+                    timestamp = row[split_col] / 1000
+                else:
+                    raise ValueError("time column type not known.")
+
+                date = datetime.fromtimestamp(timestamp, tz=pytz.UTC)
                 split_date = self._calculate_table_partitions(split, date, date)[0]
                 date_str = split_date.strftime(self.TABLE_FORMAT[split])
 

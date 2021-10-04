@@ -1,4 +1,6 @@
 from datetime import datetime, timedelta
+from typing import Union
+from uuid import UUID
 
 import pytz
 import h3.api.basic_str as h3
@@ -17,56 +19,80 @@ class Generators:
                 self.names.append(x)
 
     @staticmethod
-    def minute(ts):
+    def convert_uuid_to_timestamp(uuid: UUID):
+        return (uuid.time - 0x01b21dd213814000) * 100 / 1e9
+
+    @staticmethod
+    def minute(ts: Union[int, UUID]):
         """Generate new timestamp for that minute at second zero, in UTC.
 
         :param ts: timestamp
         :type ts: int
         :return: datetime object for that minute at second
         """
-        ts = datetime.fromtimestamp(ts / 1000, tz=pytz.UTC) \
+        if type(ts) is UUID:
+            ts = (ts.time - 0x01b21dd213814000) * 100 / 1e9
+        else:
+            ts = ts/1000
+
+        timestamp = datetime.fromtimestamp(ts, tz=pytz.UTC) \
             .replace(second=0, microsecond=0, tzinfo=pytz.UTC) \
             .timestamp()
 
-        return int(ts * 1000)
+        return int(timestamp * 1000)
 
     @staticmethod
-    def hour(ts):
+    def hour(ts: Union[int, UUID]):
         """Generate new timestamp for that hour at minute zero, in UTC.
 
         :param ts: timestamp
         :type ts: int
         :return: datetime object for that hour at minute
         """
-        ts = datetime.fromtimestamp(ts / 1000, tz=pytz.UTC) \
+        if type(ts) is UUID:
+            ts = (ts.time - 0x01b21dd213814000) * 100 / 1e9
+        else:
+            ts = ts/1000
+
+        ts = datetime.fromtimestamp(ts, tz=pytz.UTC) \
             .replace(minute=0, second=0, microsecond=0, tzinfo=pytz.UTC) \
             .timestamp()
 
         return int(ts * 1000)
 
     @staticmethod
-    def day(ts):
+    def day(ts: Union[int, UUID]):
         """Generate new timestamp for that day at midnight, in UTC.
 
         :param ts: timestamp
         :type ts: int
         :return: datetime object for that day at midnight
         """
-        ts = datetime.fromtimestamp(ts / 1000, tz=pytz.UTC) \
+        if type(ts) is UUID:
+            ts = (ts.time - 0x01b21dd213814000) * 100 / 1e9
+        else:
+            ts = ts/1000
+
+        ts = datetime.fromtimestamp(ts, tz=pytz.UTC) \
             .replace(hour=0, minute=0, second=0, microsecond=0,
                      tzinfo=pytz.UTC).timestamp()
 
         return int(ts * 1000)
 
     @staticmethod
-    def week(ts):
+    def week(ts: Union[int, UUID]):
         """Generate new timestamp for that week on monday at midnight, in UTC.
 
         :param ts: timestamp
         :type ts: int
         :return: datetime object for that week on monday at midnight
         """
-        d = datetime.fromtimestamp(ts / 1000, tz=pytz.UTC)
+        if type(ts) is UUID:
+            ts = (ts.time - 0x01b21dd213814000) * 100 / 1e9
+        else:
+            ts = ts/1000
+
+        d = datetime.fromtimestamp(ts, tz=pytz.UTC)
         last_monday = d - timedelta(days=d.weekday())
 
         ts = last_monday.replace(hour=0, minute=0, second=0, microsecond=0,
@@ -75,28 +101,38 @@ class Generators:
         return int(ts * 1000)
 
     @staticmethod
-    def month(ts):
+    def month(ts: Union[int, UUID]):
         """Generate new timestamp for that month on the first day at midnight, in UTC.
 
         :param ts: timestamp
         :type ts: int
         :return: datetime object for that month on the first day at midnight
         """
-        ts = datetime.fromtimestamp(ts / 1000, tz=pytz.UTC) \
+        if type(ts) is UUID:
+            ts = (ts.time - 0x01b21dd213814000) * 100 / 1e9
+        else:
+            ts = ts/1000
+
+        ts = datetime.fromtimestamp(ts, tz=pytz.UTC) \
             .replace(day=1, hour=0, minute=0, second=0, microsecond=0,
                      tzinfo=pytz.UTC).timestamp()
 
         return int(ts * 1000)
 
     @staticmethod
-    def year(ts):
+    def year(ts: Union[int, UUID]):
         """Generate new timestamp for that year on the first day at midnight, in UTC.
 
         :param ts: timestamp
         :type ts: int
         :return: datetime object for that year on the first day at midnight
         """
-        ts = datetime.fromtimestamp(ts / 1000, tz=pytz.UTC) \
+        if type(ts) is UUID:
+            ts = (ts.time - 0x01b21dd213814000) * 100 / 1e9
+        else:
+            ts = ts/1000
+
+        ts = datetime.fromtimestamp(ts, tz=pytz.UTC) \
             .replace(month=1, day=1, hour=0, minute=0,
                      second=0, microsecond=0, tzinfo=pytz.UTC) \
             .timestamp()
