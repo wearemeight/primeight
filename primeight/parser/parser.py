@@ -128,25 +128,6 @@ class Parser:
         if len('columns') == 0:
             raise SyntaxError("columns list is empty")
 
-        # Validate keyspace partition.
-        # If no keyspace is declared, then a client_id column is required,
-        # and vice-versa.
-        if ('keyspace' not in content
-                and 'client_id' not in content['columns']):
-            raise SyntaxError("column 'client_id' is required in "
-                              "when keyspace is not defined.")
-
-        # Validate that client_id column has a type.
-        elif ('client_id' in content['columns']
-                and 'type' not in content['columns']['client_id']):
-            raise SyntaxError(f"Missing type for column client_id")
-
-        # Validate that the client_id column has type text.
-        elif ('client_id' in content['columns']
-                and content['columns']['client_id']['type'] != 'text'):
-            raise SyntaxError(
-                f"column client_id has wrong type, must be text")
-
         for name, col_content in content['columns'].items():
 
             # Validate that the columns has type.

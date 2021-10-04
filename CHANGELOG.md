@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.6] - 2021-10-04
+### Changed
+- remove client_id verification
+- add column time generators from uuid
+
 ## [0.1.5] - 2021-05-11
 
 ### Fixed
