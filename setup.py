@@ -9,7 +9,7 @@ with Path('requirements.txt').open('r') as f:
 
 setup(
     name='primeight',
-    version='0.1.5',
+    version='0.1.6',
     url='https://pri.meight.com',
     author='Meight',
     author_email='engineering@meight.com',
