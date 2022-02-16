@@ -22,7 +22,7 @@ class TimeGeneratorsTestCase(unittest.TestCase):
 
     def test_month_generator_from_uuid(self):
         ts = Generators.month(self.uuid)
-        self.assertEqual(1633046400000, ts)
+        self.assertEqual(1643673600000, ts)
 
     def test_year_generator(self):
         ts = Generators.year(self.timestamp)
